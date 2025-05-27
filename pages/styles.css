@@ -1,0 +1,569 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.left-side, .right-side {
+    height: 100%;
+    width: 50%;  /* Ensure both sections take up equal space */
+    padding: 40px;
+}
+
+.left-side {
+    background-color: #EEF1DA;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.left-side p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.left-side .btn-sign-in {
+    padding: 10px 20px;
+    background-color: #C7D9DD;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.left-side .btn-sign-in:hover {
+    background-color: #45a049;
+}
+
+.right-side {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.right-side p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Menambahkan container untuk input dan ikon */
+.input-with-icon {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: transparent;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-with-icon input {
+    width: 600px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-left: 10px
+}
+
+.input-with-icon input:focus {
+    border-color: #4CAF50;
+}
+
+/* Mengatur posisi dan ukuran ikon */
+.toggle-password {
+    position: absolute;
+    right: 35px; /* Memberi jarak dari kanan */
+    cursor: pointer;
+    width: 20px; /* Ukuran ikon */
+    height: 20px; /* Ukuran ikon */
+}
+
+
+.form-group input {
+    width: 500px; /* Mengatur panjang input lainnya */
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #4CAF50;
+}
+
+.btn-sign-in {
+    width: 100%;
+    padding: 15px;
+    background-color: #C7D9DD;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-sign-up:hover {
+    background-color: #45a049;
+}
+
+/*login*/
+/* Styling untuk halaman login */
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-left-side, .login-right-side {
+    height: 100%;
+    width: 50%;
+    padding: 40px;
+}
+
+.login-left-side {
+    background-color: #ffffff;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-left-side h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.login-left-side p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-left-side .btn-sign-in {
+    padding: 10px 20px;
+    background-color: #C7D9DD;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.login-left-side .btn-sign-in:hover {
+    background-color: #45a049;
+}
+
+.login-right-side {
+    background-color: #EEF1DA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-right-side h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.login-right-side p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-form-group input {
+    width: 300px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.login-form-group input:focus {
+    border-color: #4CAF50;
+}
+
+.login-toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.forgot-password {
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-btn-sign-in {
+    width: 100%;
+    padding: 15px;
+    background-color: #C7D9DD;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.login-btn-sign-in:hover {
+    background-color: #45a049;
+}
+
+.login-btn-sign-up {
+    width: 100%;
+    padding: 15px;
+    background-color: #C7D9DD;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.login-btn-sign-up:hover {
+    background-color: #45a049;
+}
+
+/* styling homepage */
+/* Reset styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar .logo img {
+    width: 180px;   /* Menentukan lebar gambar */
+    height: auto;   /* Menjaga rasio aspek gambar tetap */
+}
+
+.navbar .nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav ul li {
+    margin-left: 30px;
+}
+
+.navbar .nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.navbar .nav ul li a:hover {
+    color: #45a049;  /* Hover effect */
+}
+
+/* Main Content */
+.main-content {
+    padding: 550px 40px 40px 40px; /* Adding padding to the top for space below navbar */
+    background-color: #f9f9f9;
+}
+
+.greeting {
+    background-color: #EEF1DA;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: auto;
+    display: flex;  /* Using flexbox to arrange greeting content and placeholder side by side */
+    justify-content: space-between;
+}
+
+.greeting-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.greeting-text {
+    max-width: 45%; /* Limiting width of text area */
+    text-align: left;
+}
+
+.greeting h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.greeting p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.start-journaling-btn {
+    padding: 15px 30px;
+    background-color: #75c4d6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.start-journaling-btn:hover {
+    background-color: #45a049;
+}
+
+/* Styling for placeholder */
+.placeholder {
+    width: 650px;
+    height: 350px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+/* Day Streak Section in a Box */
+.day-streak-box {
+    margin-top: 50px;
+    background-color: #e0f2f1;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* Container for day streak and streak details */
+.day-streak-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.streak-left {
+    width: 60%; /* Left side of the box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.streak-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.streak-icon {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.day-streak h2 {
+    font-size: 28px;
+}
+
+.streak {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.streak .day {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    background-color: #e0e0e0;
+    color: white;
+    font-size: 16px;
+}
+
+.streak .day.active {
+    background-color: #4CAF50;
+}
+
+/* Right side for current streak and total diary */
+.streak-right {
+    width: 35%; /* Right side of the box */
+    text-align: left;
+    padding-left: 20px;
+}
+
+.streak-details {
+    font-size: 20px;
+    color: #333;
+    margin-top: 50px;
+}
+
+.streak-details p {
+    margin: 5px 0;
+}
+
+.streak-message {
+    font-size: 16px;
+    color: #4CAF50;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Latest Diary Section */
+.latest-diary {
+    margin-top: 20px;
+    background-color: #EEF1DA;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* Diary Box */
+.diary-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EEF1DA;
+    border-radius: 10px;
+}
+
+/* Left side: Mood Icon or Image */
+.diary-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.diary-image {
+    width: 180px;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+/* Center: Diary Text */
+.diary-center {
+    flex: 3;
+    padding: 0 20px;
+}
+
+.diary-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    font-weight: normal;
+}
+
+/* Right side: Date */
+/* Right side: Emoji and Date */
+.diary-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Emoji Container */
+.emoji-container {
+    margin-bottom: 10px;
+}
+
+.emoji {
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Date Styling */
+.diary-date {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
