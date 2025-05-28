@@ -358,7 +358,7 @@ body {
     background-color: #EEF1DA;
     padding: 40px;
     border-radius: 20px;
-    margin-top: auto;
+    margin-top: 900px;
     display: flex;  /* Using flexbox to arrange greeting content and placeholder side by side */
     justify-content: space-between;
 }
@@ -566,4 +566,322 @@ body {
     font-size: 14px;
     color: #333;
     font-weight: bold;
+}
+
+.recap-week-section {
+  max-width: 2000px;
+  margin: 50px auto 0;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+.recap-week-header {
+  color: #2f2e56;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.recap-week-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-arrow {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2f2e56;
+  padding: 5px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background-color: #c9d3d9;
+}
+
+.date-range {
+  background-color: #c9d3d9;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 700;
+  color: #000;
+  font-size: 16px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.recap-week-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.recap-item {
+  background-color: #c9d3d9;
+  border-radius: 30px;
+  display: flex;
+  padding: 20px;
+  min-width: 320px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.emoji-container {
+  flex-shrink: 0;
+  background-color: #eaefdf;
+  border-radius: 12px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.emoji-container img {
+  width: 40px;
+  height: 40px;
+}
+
+.recap-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recap-date {
+  font-weight: 700;
+  font-size: 16px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.recap-desc {
+  font-size: 14px;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.start-story-section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+.start-story-header {
+  text-align: center;
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.start-story-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.story-box {
+  background-color: #f3f8d4;
+  border-radius: 15px;
+  padding: 40px;       
+  flex: 2;           
+  box-sizing: border-box;
+  min-width: 250px;    
+}
+
+.story-box ul {
+  list-style: disc inside;
+  font-weight: bold;
+  font-size: 15px;  
+  color: #000;
+  line-height: 1.4;
+  padding-left: 0;
+}
+
+.story-box ul li {
+  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+/*footer styling*/
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EEF1DA; 
+  width: 100%;
+  color: #000;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  width: 200px;   /* atur ukuran logo */
+  height: auto;
+}
+
+.footer-title {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.footer-center {
+  max-width: 400px;
+  text-align: left;
+}
+
+.footer-center h3,
+.footer-right h3 {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.footer-center p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #222;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-right a {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+/* Journaling Page */
+/* Reset styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/assets//background.png'); /* Path menuju gambar */
+    background-size: cover; /* Agar gambar memenuhi container */
+    background-position: center center; /* Menyusun gambar di tengah */
+    background-attachment: fixed; /* Gambar tetap saat scroll */
+}
+
+.journaling-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.journaling-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.journaling-date {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.journaling-description {
+  font-size: 16px;
+  color: #333;
+}
+
+.journaling-body {
+  margin-bottom: 20px;
+}
+
+.journaling-textarea {
+  width: 100%;
+  height: 250px;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  resize: none;
+  background-color: transparent;
+}
+
+.journaling-textarea:focus {
+  border-color: #4CAF50;
+}
+
+.journaling-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.save-btn {
+  padding: 15px 30px;
+  background-color: #75c4d6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #45a049;
+}
+
+.icon-group {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.journaling-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f4f4f4; /* Opsional: menambahkan layer transparan di atas gambar */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
