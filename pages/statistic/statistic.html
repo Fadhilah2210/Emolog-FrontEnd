@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emolog - Statistic</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="../home/homepage.html">
+             <img src="/assets/emologlogo.png" alt="Logo" />
+            </a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="../journaling/journaling.html">Journaling</a></li>
+                <li><a href="#" class="active">Statistic</a></li>
+                <li><a href="../history/history.html">History</a></li>
+                <li><a href="../profile/profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content-statistic">
+        <!-- Basic Stats Section -->
+        <div class="card">
+            <h2 class="section-title-stat">Basic Stats</h2>
+            <h3 class="section-subtitle-stat">Mood Flow</h3>
+
+                <!-- Happy Row -->
+                <div class="mood-row">
+                    <div class="mood-icon mood-happy">🙂</div>
+                    <div class="chart-container">
+                        <div class="chart-grid">
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                        </div>
+                        <div class="mood-bar bar-happy"></div>
+                    </div>
+                </div>
+
+                <!-- Neutral Row -->
+                <div class="mood-row">
+                    <div class="mood-icon mood-neutral">😐</div>
+                    <div class="chart-container">
+                        <div class="chart-grid">
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                        </div>
+                        <div class="mood-bar bar-neutral"></div>
+                    </div>
+                </div>
+
+                <!-- Sad Row -->
+                <div class="mood-row">
+                    <div class="mood-icon mood-sad">😔</div>
+                    <div class="chart-container">
+                        <div class="chart-grid">
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                        </div>
+                        <div class="mood-bar bar-sad"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggest Section -->
+        <div class="card">
+            <h2 class="section-title">Suggest</h2>
+            
+            <div class="suggest-container">
+                <!-- Left side - Placeholder card -->
+                <div class="suggest-card">
+                    Content suggestions will appear here
+                </div>
+
+                <!-- Right side - Mood Bar -->
+                <div class="mood-bar-section">
+                    <div class="mood-bar-title">Mood Bar</div>
+                    
+                    <div class="mood-bar-container">
+                        <div class="mood-segment segment-happy"></div>
+                        <div class="mood-segment segment-neutral"></div>
+                        <div class="mood-segment segment-sad"></div>
+                    </div>
+
+                    <div class="mood-indicators">
+                        <div class="mood-indicator indicator-happy">😊</div>
+                        <div class="mood-indicator indicator-neutral">😐</div>
+                        <div class="mood-indicator indicator-sad">😔</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer-global">
+    <p>&copy; 2025 Dicoding</p>
+    </footer>
+</body>
+</html>

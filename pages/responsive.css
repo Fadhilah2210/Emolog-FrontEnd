@@ -1,0 +1,47 @@
+/* Responsive untuk layar lebar (desktop) */
+@media (min-width: 992px) {
+  /* Sesuaikan elemen di desktop */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+}
+
+/* Responsive untuk tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Sesuaikan elemen untuk tablet */
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Responsive untuk ponsel (max-width: 480px) */
+@media (max-width: 480px) {
+  /* Sesuaikan elemen untuk ponsel */
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
