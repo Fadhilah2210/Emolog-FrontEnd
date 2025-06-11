@@ -6,6 +6,7 @@
     <title>Emolog - Statistic</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+    
 </head>
 <body>
     <!-- Header -->
@@ -26,87 +27,186 @@
     </header>
 
     <!-- Main Content -->
-    <main class="main-content-statistic">
-        <!-- Basic Stats Section -->
-        <div class="card">
-            <h2 class="section-title-stat">Basic Stats</h2>
-            <h3 class="section-subtitle-stat">Mood Flow</h3>
+     <main class="main-content-statistic">
+        <div class="stats-grid">
+            <!-- Basic Stats Section -->
+            <div class="card">
+                <h2 class="section-title-stat">Basic Stats</h2>
+                <p class="section-subtitle-stat">Ringkasan mood Anda bulan ini</p>
 
-                <!-- Happy Row -->
-                <div class="mood-row">
-                    <div class="mood-icon mood-happy">🙂</div>
-                    <div class="chart-container">
-                        <div class="chart-grid">
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                        </div>
-                        <div class="mood-bar bar-happy"></div>
+                <!-- Stats Overview -->
+                <div class="stats-overview">
+                    <div class="stat-item">
+                        <div class="stat-number">28</div>
+                        <div class="stat-label">Total Entries</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7.2</div>
+                        <div class="stat-label">Rata-rata Mood</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Hari Berturut</div>
                     </div>
                 </div>
 
-                <!-- Neutral Row -->
-                <div class="mood-row">
-                    <div class="mood-icon mood-neutral">😐</div>
-                    <div class="chart-container">
-                        <div class="chart-grid">
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
+                <h3 class="section-subtitle-stat">Mood Flow</h3>
+                <div class="mood-chart">
+                    <!-- Happy Row -->
+                    <div class="mood-row">
+                        <div class="mood-icon mood-happy">
+                            <img src="/assets/happy.png" alt="Happy Mood"/>
                         </div>
-                        <div class="mood-bar bar-neutral"></div>
+                        <div class="mood-label">Senang</div>
+                        <div class="chart-container">
+                            <div class="mood-bar bar-happy">75%</div>
+                        </div>
+                    </div>
+
+                    <!-- Neutral Row -->
+                    <div class="mood-row">
+                        <div class="mood-icon mood-neutral">
+                            <img src="/assets/netral.png" alt="Netral Mood"/>
+                        </div>
+                        <div class="mood-label">Netral</div>
+                        <div class="chart-container">
+                            <div class="mood-bar bar-neutral">45%</div>
+                        </div>
+                    </div>
+
+                    <!-- Sad Row -->
+                    <div class="mood-row">
+                        <div class="mood-icon mood-sad">
+                            <img src="/assets/sad.png" alt="Sad Mood"/>
+                        </div>
+                        <div class="mood-label">Sedih</div>
+                        <div class="chart-container">
+                            <div class="mood-bar bar-sad">25%</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Sad Row -->
-                <div class="mood-row">
-                    <div class="mood-icon mood-sad">😔</div>
-                    <div class="chart-container">
-                        <div class="chart-grid">
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
+                <!-- Weekly Trend -->
+                <div class="weekly-trend">
+                    <h3 class="section-subtitle-stat">Tren Mingguan</h3>
+                    <div class="trend-days">
+                        <div class="trend-day">
+                            <div class="trend-day-name">Sen</div>
+                            <div class="trend-emoji">
+                                <img src="/assets/happy.png" alt="Happy Mood"/>
+                            </div>
                         </div>
-                        <div class="mood-bar bar-sad"></div>
+                        <div class="trend-day">
+                            <div class="trend-day-name">Sel</div>
+                            <div class="trend-emoji">
+                                <img src="/assets/happy.png" alt="Happy Mood"/>
+                            </div>
+                        </div>
+                        <div class="trend-day">
+                            <div class="trend-day-name">Rab</div>
+                            <div class="trend-emoji">
+                                 <img src="/assets/happy.png" alt="Happy Mood"/>
+                            </div>
+                        </div>
+                        <div class="trend-day">
+                            <div class="trend-day-name">Kam</div>
+                            <div class="trend-emoji">
+                                 <img src="/assets/sad.png" alt="Sad Mood"/>
+                            </div>
+                        </div>
+                        <div class="trend-day">
+                            <div class="trend-day-name">Jum</div>
+                            <div class="trend-emoji">
+                                 <img src="/assets/happy.png" alt="Happy Mood"/>
+                            </div>
+                        </div>
+                        <div class="trend-day">
+                            <div class="trend-day-name">Sab</div>
+                            <div class="trend-emoji">
+                                 <img src="/assets/happy.png" alt="Happy Mood"/>
+                            </div>
+                        </div>
+                        <div class="trend-day">
+                            <div class="trend-day-name">Min</div>
+                            <div class="trend-emoji">
+                                 <img src="/assets/netral.png" alt="Netral Mood"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="card">
+                    <h3 class="summary-title">Insight Mingguan</h3>
+                    <div class="insight-item">
+                        <div class="insight-icon" style="background: linear-gradient(135deg, #10b981, #059669);">📈</div>
+                        <div class="insight-text">Bulan ini kamu bahagia!</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">⚠️</div>
+                        <div class="insight-text">Perhatikan mood pada hari Kamis yang cenderung rendah</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">🎯</div>
+                        <div class="insight-text">Mood kamu meningkat dari minggu lalu</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="summary-title">Aktivitas Terakhir</h3>
+                    <div class="insight-item">
+                        <div class="insight-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">✍️</div>
+                        <div class="insight-text">Menulis jurnal 5 hari berturut-turut</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">🔥</div>
+                        <div class="insight-text">Streak terpanjang: 12 hari</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">💝</div>
+                        <div class="insight-text">Entry terakhir: 2 jam yang lalu</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Suggest Section -->
-        <div class="card">
-            <h2 class="section-title">Suggest</h2>
+        <div class="card suggest-section">
+            <h2 class="section-title-stat">Rekomendasi</h2>
             
             <div class="suggest-container">
-                <!-- Left side - Placeholder card -->
+                <!-- Left side - Suggestions -->
                 <div class="suggest-card">
-                    Content suggestions will appear here
+                    <div class="suggestion-item">
+                        <div class="suggestion-icon">🧘</div>
+                        <div class="suggestion-content">
+                            <h4>Meditasi Mindfulness</h4>
+                            <p>Berdasarkan pola mood Anda, cobalah meditasi 10 menit setiap pagi untuk meningkatkan ketenangan mental.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestion-item">
+                        <div class="suggestion-icon">🚶</div>
+                        <div class="suggestion-content">
+                            <h4>Jalan Pagi</h4>
+                            <p>Aktivitas fisik ringan dapat membantu meningkatkan mood, terutama di hari Kamis yang cenderung rendah.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestion-item">
+                        <div class="suggestion-icon">📚</div>
+                        <div class="suggestion-content">
+                            <h4>Jurnal Gratitude</h4>
+                            <p>Tuliskan 3 hal yang Anda syukuri setiap hari untuk mempertahankan mood positif di akhir pekan.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Right side - Mood Bar -->
                 <div class="mood-bar-section">
-                    <div class="mood-bar-title">Mood Bar</div>
+                    <div class="mood-bar-title">Distribusi Mood</div>
                     
                     <div class="mood-bar-container">
                         <div class="mood-segment segment-happy"></div>
@@ -118,6 +218,10 @@
                         <div class="mood-indicator indicator-happy">😊</div>
                         <div class="mood-indicator indicator-neutral">😐</div>
                         <div class="mood-indicator indicator-sad">😔</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #64748b;">
+                        <p><strong>35%</strong> Senang • <strong>25%</strong> Netral • <strong>40%</strong> Sedih</p>
                     </div>
                 </div>
             </div>
