@@ -1,0 +1,2 @@
+(self.webpackChunkemologcapstonefe=self.webpackChunkemologcapstonefe||[]).push([[130],{130:()=>{document.addEventListener("DOMContentLoaded",(function(){var e=localStorage.getItem("username");if(e){var n=document.querySelector(".greeting-text h1");n&&(n.textContent="Halo, ".concat(e,"!"));var t=document.querySelector(".start-journaling-btn");t&&t.addEventListener("click",(function(){window.location.href="../journaling/journaling.html"}))}else window.location.href="../login/login.html"}))}}]);
+//# sourceMappingURL=130.bundle.js.map

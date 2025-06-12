@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emolog - Welcome</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">  
-  <link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emolog - Splash</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      transition: opacity 1s ease;
+    }
+
+    .splash {
+      text-align: center;
+      font-family: sans-serif;
+      animation: fadeOut 1s ease forwards;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Tempat untuk header -->
-  <div id="header-container"></div>
-
-  <div class="main-content">
+  <div class="splash">
     <h1>Welcome to Emolog</h1>
     <p>Your emotional journey starts here.</p>
   </div>
 
-  <!-- Tempat untuk footer -->
-  <div id="footer-container"></div>
-
   <script>
-    // Memuat header
-    fetch('/pages/header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-container').innerHTML = data;
-      })
-      .catch(error => console.error('Error loading header:', error));
-
-    // Memuat footer
-    fetch('/pages/footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-container').innerHTML = data;
-      })
-      .catch(error => console.error('Error loading footer:', error));
+    // Redirect ke login.html setelah animasi selesai (misalnya 3 detik)
+    setTimeout(() => {
+      window.location.href = "./login/login.html";
+    }, 3000);
   </script>
-
 </body>
 </html>

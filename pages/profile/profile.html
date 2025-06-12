@@ -112,8 +112,8 @@
             <label for="currentPassword">Current Password</label>
             <input type="password" id="currentPassword" placeholder="Current Password">
             <!-- Eye icon for toggle password visibility -->
-            <span class="toggle-password" onclick="togglePassword('currentPassword')">
-                <img id="eye-icon-current" src="/assets/eyeclose.png" alt="Eye Icon" width="30px">
+            <span class="toggle-password" data-target="currentPassword">
+                <img id="eye-icon-currentPassword" src="/assets/eyeclose.png" alt="Eye Icon" width="30px">
             </span>
         </div>
         
@@ -122,8 +122,8 @@
             <label for="newPassword">New Password</label>
             <input type="password" id="newPassword" placeholder="Enter new password">
             <!-- Eye icon for toggle password visibility -->
-            <span class="toggle-password" onclick="togglePassword('newPassword')">
-                <img id="eye-icon-new" src="/assets/eyeclose.png" alt="Eye Icon" width="30px">
+            <span class="toggle-password" data-target="newPassword">
+                <img id="eye-icon-newPassword" src="/assets/eyeclose.png" alt="Eye Icon" width="30px">
             </span>
         </div>
         
@@ -132,8 +132,8 @@
             <label for="confirmPassword">Confirm New Password</label>
             <input type="password" id="confirmPassword" placeholder="Confirm new password">
             <!-- Eye icon for toggle password visibility -->
-            <span class="toggle-password" onclick="togglePassword('confirmPassword')">
-                <img id="eye-icon-confirm" src="/assets/eyeclose.png" alt="Eye Icon" width="30px">
+            <span class="toggle-password" data-target="confirmPassword">
+                <img id="eye-icon-confirmPassword" src="/assets/eyeclose.png" alt="Eye Icon" width="30px">
             </span>
         </div>
         
@@ -147,6 +147,6 @@
   <footer class="footer-global">
     <p>&copy; 2025 Dicoding</p>
   </footer>
-  <script src="/tesscript.js"></script>
+  <script src="../../script/profile.js"></script>
 </body>
 </html>
