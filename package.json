@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Fadhilah2210/Emolog-FrontEnd-/issues"
   },
-  "homepage": "https://github.com/Fadhilah2210/Emolog-FrontEnd-#readme",
+  "homepage": "https://Fadhilah2210.github.io/Emolog-FrontEnd",
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
@@ -34,6 +35,10 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
-    "cors": "^2.8.5"
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "gh-pages": "^6.3.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }

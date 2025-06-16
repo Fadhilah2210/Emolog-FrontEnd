@@ -947,10 +947,21 @@ body#journaling {
 }
 
 .journaling-date {
-  font-size: 16px;
-  color: #888;
-  margin-bottom: 10px;
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 500;
+  color: #75c4d6;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
 }
+.journaling-date::-webkit-calendar-picker-indicator {
+  filter: invert(50%);
+  cursor: pointer;
+}
+
 
 .journaling-description {
   font-size: 16px;
@@ -1095,10 +1106,10 @@ body#journaling {
 /* General Styles History*/
 
 .main-content-history {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem 1.5rem;
-  padding-top: 800px; /* Space for fixed navbar */
+  padding-top: 500px; /* Space for fixed navbar */
 }
 
 .card {

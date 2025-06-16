@@ -1,127 +1,100 @@
-// Elemen penting
-const calendarTitle = document.querySelector(".calendar-title");
-const calendarGrid = document.querySelector(".calendar-grid");
-const prevBtn = document.querySelectorAll(".nav-btn")[0];
-const nextBtn = document.querySelectorAll(".nav-btn")[1];
-const journalDate = document.getElementById("journal-date");
-const diaryText = document.getElementById("diaryText");
-const noDiaryText = document.getElementById("noDiaryText");
-const moodDisplay = document.getElementById("moodDisplay");
+document.addEventListener("DOMContentLoaded", () => {
+  const calendarDays = document.querySelectorAll(".calendar-day");
+  const journalDateDisplay = document.querySelector(".journal-header h3");
+  const diaryText = document.querySelector(".diary-text");
+  const diaryTitle = document.querySelector(".diary-title");
+  const moodEmoji = document.querySelector(".mood-emoji");
 
-let currentDate = new Date(); // waktu saat ini
+  const token = localStorage.getItem("token");
 
-// Simulasi data diary
-const diaryData = {
-  "2025-06-02": {
-    mood: "😊",
-    text: "Hari ini adalah hari yang menyenangkan..."
-  },
-  "2025-06-03": {
-    mood: "😔",
-    text: "Hari ini cukup melelahkan..."
-  }
-};
+  // Simpan semua entries setelah fetch agar tidak perlu request ulang
+  let allEntries = [];
 
-// Fungsi render kalender
-function renderCalendar() {
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth(); // 0-indexed
-  const firstDay = new Date(year, month, 1).getDay(); // Minggu = 0
-  const lastDate = new Date(year, month + 1, 0).getDate();
+  // Fungsi untuk fetch semua entries dari server
+  async function fetchEntries() {
+    try {
+      const response = await fetch("http://localhost:3000/api/entries", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
 
-  // Nama bulan
-  const monthName = currentDate.toLocaleDateString("id-ID", {
-    month: "long",
-    year: "numeric",
-  });
-  calendarTitle.textContent = `${monthName}`;
+      if (!response.ok) {
+        throw new Error("Gagal mengambil data journaling.");
+      }
 
-  // Bersihkan semua hari lama
-  const days = calendarGrid.querySelectorAll(".calendar-day");
-  days.forEach(day => day.remove());
-
-  // Hitung offset hari pertama (agar mulai dari Senin)
-  let startDay = (firstDay === 0) ? 6 : firstDay - 1;
-
-  // Tambah tanggal bulan sebelumnya
-  const prevLastDate = new Date(year, month, 0).getDate();
-  for (let i = startDay - 1; i >= 0; i--) {
-    const day = createDayButton(prevLastDate - i, "other-month");
-    calendarGrid.appendChild(day);
+      allEntries = await response.json();
+    } catch (error) {
+      console.error("Fetch entries error:", error.message);
+    }
   }
 
-  // Tanggal bulan ini
-  for (let i = 1; i <= lastDate; i++) {
-    const dateStr = formatDate(year, month + 1, i); // yyyy-mm-dd
-    const day = createDayButton(i, "current-month", dateStr);
-    calendarGrid.appendChild(day);
+  // Fungsi menampilkan entry berdasarkan tanggal
+    function showEntryByDate(selectedDate) {
+    const formattedDate = selectedDate.toISOString().split("T")[0];
+
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    journalDateDisplay.textContent = selectedDate.toLocaleDateString('id-ID', options);
+
+    const entries = allEntries.filter(e => e.entry_date === formattedDate);
+
+    const diaryContainer = document.querySelector(".diary-content");
+    diaryContainer.innerHTML = ""; // kosongkan dulu
+
+    if (entries.length > 0) {
+      entries.forEach(entry => {
+        const entryEl = document.createElement("div");
+        entryEl.classList.add("diary-entry-block");
+
+        entryEl.innerHTML = `
+          <h4 class="diary-title">${entry.title || "Tanpa Judul"}</h4>
+          <p class="diary-text">${entry.entry_text || "(Kosong)"}</p>
+          <div class="mood-display">Mood: ${getEmojiByEmotion(entry.emotion_id)}</div>
+          <hr/>
+        `;
+
+        diaryContainer.appendChild(entryEl);
+      });
+    } else {
+      diaryContainer.innerHTML = `
+        <p class="diary-text">Belum ada journaling di tanggal ini.</p>
+      `;
+    }
   }
 
-  // Tambah tanggal bulan depan
-  const totalCells = startDay + lastDate;
-  const nextDays = 42 - totalCells; // total 6 minggu (6x7 = 42)
-  for (let i = 1; i <= nextDays; i++) {
-    const day = createDayButton(i, "other-month");
-    calendarGrid.appendChild(day);
-  }
-}
 
-// Buat tombol hari
-function createDayButton(dayNum, className, dateStr = null) {
-  const btn = document.createElement("button");
-  btn.textContent = dayNum;
-  btn.classList.add("calendar-day", className);
-  if (dateStr) {
-    btn.addEventListener("click", () => {
-      selectDate(btn, dateStr);
+  // Fungsi bantu: dapatkan emoji dari emotion_id (sementara)
+  function getEmojiByEmotion(emotionId) {
+    const emojiMap = {
+      1: "😊", // Senang
+      2: "😢", // Sedih
+      3: "😠", // Marah
+      4: "😨", // Takut
+      5: "😐", // Netral
+    };
+    return emojiMap[emotionId] || "😐";
+  }
+
+  // Tambahkan event listener ke setiap tanggal
+  calendarDays.forEach(day => {
+    day.addEventListener("click", () => {
+      // Ambil angka tanggal dari button
+      const dayNumber = parseInt(day.textContent);
+      if (isNaN(dayNumber)) return;
+
+      // Asumsikan bulan = Juni 2025
+      const selectedDate = new Date(2025, 5, dayNumber); // Bulan 5 = Juni
+      showEntryByDate(selectedDate);
+
+      // Highlight yang aktif
+      calendarDays.forEach(d => d.classList.remove("selected"));
+      day.classList.add("selected");
     });
-  }
-  return btn;
-}
-
-// Saat tanggal diklik
-function selectDate(btn, dateStr) {
-  // Hapus class 'selected' dari yang lain
-  document.querySelectorAll(".calendar-day.selected").forEach(el => {
-    el.classList.remove("selected");
-  });
-  btn.classList.add("selected");
-
-  const dateObj = new Date(dateStr);
-  journalDate.textContent = dateObj.toLocaleDateString("id-ID", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric"
   });
 
-  const diary = diaryData[dateStr];
-  if (diary) {
-    diaryText.textContent = diary.text;
-    diaryText.style.display = "block";
-    noDiaryText.style.display = "none";
-    moodDisplay.textContent = diary.mood;
-  } else {
-    diaryText.style.display = "none";
-    noDiaryText.style.display = "block";
-    moodDisplay.textContent = "😐";
-  }
-}
-
-// Format jadi yyyy-mm-dd
-function formatDate(year, month, day) {
-  return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-}
-
-// Navigasi bulan
-prevBtn.addEventListener("click", () => {
-  currentDate.setMonth(currentDate.getMonth() - 1);
-  renderCalendar();
+  // Fetch entries saat halaman dimuat, lalu tampilkan default hari ini
+  fetchEntries().then(() => {
+    const today = new Date();
+    showEntryByDate(today);
+  });
 });
-nextBtn.addEventListener("click", () => {
-  currentDate.setMonth(currentDate.getMonth() + 1);
-  renderCalendar();
-});
-
-// Render pertama
-renderCalendar();

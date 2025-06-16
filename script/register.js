@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
-  const nameInput = document.getElementById("name");
+  const usernameInput = document.getElementById("username"); // pakai id="name" di input
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
   const toggleIcon = document.querySelector(".toggle-password");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const username = nameInput.value.trim();
+    const username = usernameInput.value.trim();
     const email = emailInput.value.trim();
     const password = passwordInput.value;
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ username, email, password })
+        body: JSON.stringify({ username, email, password }) // kirim username
       });
 
       const contentType = response.headers.get("content-type") || "";
@@ -41,12 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // (Opsional) Simpan user jika backend mengirim data user langsung
-      if (data.username || data.email) {
+      if (data.user) {
         const user = {
-          fullname: data.fullname || username, // fallback ke username jika tidak ada
-          username: data.username || username,
-          email: data.email || email
+          id: data.user.id,
+          username: data.user.username,
+          email: data.user.email
         };
         localStorage.setItem("user", JSON.stringify(user));
       }

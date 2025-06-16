@@ -6,7 +6,8 @@
   <title>Journaling - Emolog</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 </head>
 <body id="journaling">
  <!-- Navbar -->
@@ -30,7 +31,9 @@
   <section class="journaling-container">
     <div class="journaling-header">
       <textarea class="judul-area" placeholder="Judul Ceritamu Hari Ini"></textarea>
-      <p class="journaling-date">Jumat, 13 Juni 2025</p>
+      <input type="text" id="journal-date" class="journaling-date" placeholder="Pilih tanggal..." />
+
+
       <hr>
       <p class="journaling-description">Tulis sebanyak atau sesedikit yang kamu mau.</p>
     </div>
@@ -50,5 +53,13 @@
     <p>&copy; 2025 Dicoding</p>
   </footer>
   <script src="../../script/journaling.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    flatpickr("#journal-date", {
+      dateFormat: "Y-m-d",
+      defaultDate: new Date()
+    });
+  </script>
+
 </body>
 </html>

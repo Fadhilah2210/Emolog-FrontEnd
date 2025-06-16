@@ -28,17 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Simpan token dan data user ke localStorage
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("username", data.username || "Guest");
-      localStorage.setItem("email", data.email || email);
+      const user = data.user; // ✅ Ambil dari data.user
 
-      // Simpan juga ke localStorage sebagai 1 objek user (opsional)
-      const userData = {
-        username: data.username || "Guest",
-        email: data.email || email
-      };
-      localStorage.setItem("user", JSON.stringify(userData));
+      // Simpan token dan user ke localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("username", user.username);
+      localStorage.setItem("email", user.email);
+
+      // (Opsional) Simpan sebagai satu objek
+      localStorage.setItem("user", JSON.stringify(user));
 
       alert("Login berhasil!");
       window.location.href = "../home/homepage.html";
@@ -60,6 +58,4 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleIcon.src = isHidden ? "/assets/eyeopen.png" : "/assets/eyes.png";
     });
   }
-
-  
 });

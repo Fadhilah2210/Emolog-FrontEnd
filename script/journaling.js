@@ -1,34 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const saveBtn = document.querySelector(".save-btn");
+  const saveButton = document.querySelector(".save-btn");
   const titleInput = document.querySelector(".judul-area");
-  const contentInput = document.querySelector(".journaling-textarea");
-  const photoIcon = document.querySelector(".icon");
+  const entryInput = document.querySelector(".journaling-textarea");
+  const dateInput = document.getElementById("journal-date");
 
-  saveBtn.addEventListener("click", () => {
+  // Set default tanggal ke hari ini
+  const today = new Date().toISOString().split("T")[0];
+  if (dateInput) dateInput.value = today;
+
+  saveButton.addEventListener("click", async () => {
+    const token = localStorage.getItem("token");
     const title = titleInput.value.trim();
-    const content = contentInput.value.trim();
-    const date = new Date().toISOString();
+    const entry_text = entryInput.value.trim(); // sesuai backend
+    const entry_date = dateInput ? dateInput.value : today; // sesuai backend
+    const emotion_id = 1; // default sementara
 
-    if (!title || !content) {
-      alert("Judul dan isi catatan tidak boleh kosong.");
+    if (!title || !entry_text) {
+      alert("Judul dan catatan tidak boleh kosong!");
       return;
     }
 
-    // Simpan ke localStorage sementara
-    const notes = JSON.parse(localStorage.getItem("journals") || "[]");
-    notes.push({ title, content, date });
-    localStorage.setItem("journals", JSON.stringify(notes));
+    try {
+      const response = await fetch("http://localhost:3000/api/entries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          title,
+          entry_text,
+          emotion_id,
+          entry_date
+        })
+      });
 
-    alert("Catatan berhasil disimpan!");
-    // Optional: kosongkan field
-    titleInput.value = "";
-    contentInput.value = "";
-  });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Gagal menyimpan journaling.");
+      }
 
-  // Navigasi ke folder / halaman upload gambar
-  photoIcon.addEventListener("click", () => {
-    // Misal ke halaman upload
-    window.location.href = "../upload/upload.html"; 
-    // atau bisa trigger <input type="file"> kalau pakai form
+      alert("Journaling berhasil disimpan!");
+      titleInput.value = "";
+      entryInput.value = "";
+
+    } catch (error) {
+      console.error("Error saat menyimpan journaling:", error.message);
+      alert("Gagal menyimpan journaling: " + error.message);
+    }
   });
 });
